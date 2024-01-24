@@ -1,5 +1,6 @@
 const allButtons = document.querySelectorAll('button');
 const currentDisplay = document.querySelector('.input-display');
+let fisrtNum, secondNum;
 
 for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener("click", performCalculation);
@@ -8,8 +9,7 @@ for (let i = 0; i < allButtons.length; i++) {
 function performCalculation (event) {
     const calculationType = event.target.id;
     if (/([0-9]+)$/.test(calculationType)) {
-        // putNumberOnStack(calculationType);
-        showInDisplay(calculationType)
+        putNumberOnStack(calculationType);
     }
     if (calculationType == ".") {
         console.log(`Spl op: ${calculationType}`);
@@ -35,4 +35,38 @@ function showInDisplay (value) {
     currentDisplay.scrollTop = currentDisplay.scrollHeight;
 }
 
-// function putNumberOnStack ()
+function operate (num1, num2, operator) {
+    let result;
+    switch (operator) {
+        case '+':
+            result = add(num1, num2);
+            break;
+        case '+':
+            result = subtract(num1, num2);
+            break;
+        case '+':
+            result = multiply(num1, num2);
+            break;  
+        case '+':
+            result = divide(num1, num2);
+            break;
+        default:
+            console.log(`function operate mistake. Nums = ${unm1}, ${num2}, operator: ${operator}`)
+    }
+    return result;
+}
+
+const add = (num1, num2) => num1+num2;
+const subtract = (num1, num2) => num1-num2;
+const multiply = (num1, num2) => num1*num2;
+const divide = (num1, num2) => {
+    if (num2 == 0)
+        return NaN
+    return num1/num2;
+};
+
+function putNumberOnStack (num) {
+    if (!result) 
+        result = num;
+
+}
