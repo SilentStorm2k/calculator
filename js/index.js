@@ -1,4 +1,5 @@
 const allButtons = document.querySelectorAll('button');
+const currentDisplay = document.querySelector('.input-display');
 
 for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener("click", performCalculation);
@@ -7,7 +8,8 @@ for (let i = 0; i < allButtons.length; i++) {
 function performCalculation (event) {
     const calculationType = event.target.id;
     if (/([0-9]+)$/.test(calculationType)) {
-        console.log(calculationType);
+        // putNumberOnStack(calculationType);
+        showInDisplay(calculationType)
     }
     if (calculationType == ".") {
         console.log(`Spl op: ${calculationType}`);
@@ -25,3 +27,12 @@ function performCalculation (event) {
         console.log(`Spl op: ${calculationType}`);
     }
 }
+
+function showInDisplay (value) {
+    const newValue = document.createElement('h2');
+    newValue.textContent = value;
+    currentDisplay.appendChild(newValue);
+    currentDisplay.scrollTop = currentDisplay.scrollHeight;
+}
+
+// function putNumberOnStack ()
