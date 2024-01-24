@@ -77,8 +77,10 @@ function equalPressed () {
     while (currentDisplay.firstChild) {
         currentDisplay.removeChild(currentDisplay.firstChild);
     }
-    if (firstNum != undefined && secondNum == undefined)
+    if (firstNum != undefined && secondNum == undefined) {
         showInResultDisplay(firstNum);
+        showInDisplay(resultDisplay.firstChild.textContent);
+    }
     else {
         showInDisplay(resultDisplay.firstChild.textContent);
         firstNum = parseFloat(resultDisplay.firstChild.textContent);
