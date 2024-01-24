@@ -1,0 +1,62 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    border: 1px solid red;
+}
+
+.calculator-container {
+    width: 30rem;
+    height: 35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.input-container {
+    flex: 1;
+    display: flex;
+}
+
+.numpad,
+.operators {
+    flex:1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.numpad > * {
+    height: 2rem;
+    width: 2rem;
+}
+
+.footer {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: bisque;
+}
+
+.logo {
+    /* flex: 0; */
+    width: 2rem;
+    height: 2rem;
+    background-image: url("../images/github-logo-light.png");
+    background-size: cover;
+}
+
+.logo:hover {
+    background-image: url("../images/github-logo-dark.png");
+}
