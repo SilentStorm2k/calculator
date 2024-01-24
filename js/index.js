@@ -6,10 +6,19 @@ for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener("click", performCalculation);
 }
 
+function reset () {
+    while (currentDisplay.firstChild) {
+        currentDisplay.removeChild(currentDisplay.firstChild);
+    }
+    fisrtNum = undefined;
+    secondNum = undefined;
+}
+
 function performCalculation (event) {
     const calculationType = event.target.id;
     if (/([0-9]+)$/.test(calculationType)) {
-        putNumberOnStack(calculationType);
+        // putNumberOnStack(calculationType);
+        showInDisplay(calculationType);
     }
     if (calculationType == ".") {
         console.log(`Spl op: ${calculationType}`);
@@ -21,7 +30,7 @@ function performCalculation (event) {
         console.log(`Spl op: ${calculationType}`);
     }
     if (calculationType == "clear") {
-        console.log(`Spl op: ${calculationType}`);
+        reset();
     }
     if (calculationType == "backspace") {
         console.log(`Spl op: ${calculationType}`);
