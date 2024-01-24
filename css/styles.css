@@ -72,6 +72,10 @@ body {
     margin-top: 0;
 }
 
+.result-display > * {
+    margin: 0.3rem 0;
+}
+
 .input-container {
     flex: 1;
     display: flex;
