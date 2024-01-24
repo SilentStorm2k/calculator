@@ -86,8 +86,21 @@ body {
     flex-basis: 1;
 }
 
+button {
+    font-size: larger;
+    border-radius: 0.2rem;
+}
+
 .equal {
     width: 9.2rem;
+    font-weight: bold;
+    background-color: #FDF0D1;
+}
+
+.clear {
+    color: orangered;
+    font-weight: bold;
+    background-color: #FDF0D1;
 }
 
 .footer {
