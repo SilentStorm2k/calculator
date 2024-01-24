@@ -8,10 +8,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to bottom, #FDF0D1, #85586F);
 }
 
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .calculator-container {
@@ -19,10 +20,19 @@ body {
     height: 35rem;
     display: flex;
     flex-direction: column;
+    border-radius: 0.4rem;
+}
+
+.calculator-container,
+.display,
+.input-container,
+.footer {
+    border: 0.2rem solid rgb(110, 60, 77);
 }
 
 .display {
     height: 10rem;
+    background-color: #FDF0D1;
 }
 
 .input-container {
@@ -40,6 +50,13 @@ body {
 
 .numpad {
     flex: 1.5;
+    background-color: #AC7D88;
+    border-right: 0.2rem solid rgb(110, 60, 77);
+}
+
+.operators {
+    background-color: #85586F;
+    border-left: 0.2rem solid rgb(110, 60, 77);
 }
 
 .row {
@@ -65,7 +82,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: bisque;
+    background-color: #FDF0D1;
 }
 
 .logo {
