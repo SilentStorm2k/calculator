@@ -46,7 +46,27 @@ body {
     background-color: white;
     border: 0.2rem solid rgb(110, 60, 77);
     border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
 
+.input-display,
+.result-display {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.input-display {
+    flex: 2;
+    margin-bottom: 0;
+    border-bottom: 0.2rem solid rgb(110, 60, 77);
+}
+
+.result-display {
+    flex: 1;
+    margin-top: 0;
 }
 
 .input-container {
