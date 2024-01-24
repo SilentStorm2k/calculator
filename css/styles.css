@@ -62,6 +62,9 @@ body {
     flex: 2;
     margin-bottom: 0;
     border-bottom: 0.2rem solid rgb(110, 60, 77);
+    flex-wrap: wrap;
+    overflow: auto;
+    align-content: flex-start;
 }
 
 .result-display {
