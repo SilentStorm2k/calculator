@@ -130,6 +130,12 @@ button {
     background-color: #FDF0D1;
 }
 
+#backspace,
+#dot {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .footer {
     padding: 0.3rem;
     display: flex;
