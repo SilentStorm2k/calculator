@@ -44,14 +44,28 @@ function performCalculation (event) {
         previousOperator = calculationType;
     }
     if (calculationType == "equal") {
-        if (firstNum != undefined && secondNum == undefined)
-            showInResultDisplay(firstNum);
+        equalPressed();
     }
     if (calculationType == "clear") {
         reset();
     }
     if (calculationType == "backspace") {
         console.log(`Spl op: ${calculationType}`);
+    }
+}
+
+function equalPressed () {
+    while (currentDisplay.firstChild) {
+        currentDisplay.removeChild(currentDisplay.firstChild);
+    }
+    if (firstNum != undefined && secondNum == undefined)
+        showInResultDisplay(firstNum);
+    else {
+        showInDisplay(resultDisplay.firstChild.textContent);
+        firstNum = parseFloat(resultDisplay.firstChild.textContent);
+        secondNum = undefined;
+        seenOperator = false;
+        operatorCount = 0;
     }
 }
 
@@ -116,6 +130,7 @@ function putNumberOnStack (num, useSecond) {
     else {
         firstNum = firstNum == undefined ? parseInt(num) : firstNum*10 + parseInt(num); 
     }
+    console.log(`${firstNum}, ${secondNum}`);
     showInDisplay(num);
     if (operatorCount == 1) {
         showInResultDisplay(operate(firstNum, secondNum, previousOperator, true));
