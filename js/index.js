@@ -29,7 +29,7 @@ function performCalculation (event) {
     if (/([0-9]+)$/.test(calculationType)) {
         putNumberOnStack(calculationType, seenOperator);
     }
-    if (calculationType == ".") {
+    if (calculationType == "dot") {
         console.log(`Spl op: ${calculationType}`);
     }
     if ((/([+,\-,*,/]+)$/.test(calculationType))) {
@@ -130,7 +130,6 @@ function putNumberOnStack (num, useSecond) {
     else {
         firstNum = firstNum == undefined ? parseInt(num) : num=="00" ? firstNum*100 : firstNum*10 + parseInt(num); 
     }
-    console.log(`${firstNum}, ${secondNum}`);
     showInDisplay(num);
     if (operatorCount == 1) {
         showInResultDisplay(operate(firstNum, secondNum, previousOperator, true));
