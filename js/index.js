@@ -10,6 +10,19 @@ for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].addEventListener("click", performCalculation);
 }
 
+for (let i = 0; i < allButtons.length; i++) {
+    allButtons[i].addEventListener("keypress", keyPress);
+}
+
+function keyPress (event) {
+    let fromKeypress = true;
+    if (event.key == "=" || event.key == "Enter")
+        performCalculation("equal", fromKeypress);
+    else {
+        performCalculation(event.key, fromKeypress)
+    }
+}
+
 function reset () {
     while (currentDisplay.firstChild) {
         currentDisplay.removeChild(currentDisplay.firstChild);
@@ -24,15 +37,19 @@ function reset () {
     operatorCount = 0;
 }
 
-function performCalculation (event) {
-    const calculationType = event.target.id;
+function performCalculation (event, fromKeypress = false) {
+    let calculationType;
+    if (fromKeypress)
+        calculationType = event;
+    if (!fromKeypress)
+        calculationType = event.target.id;
     if (/([0-9]+)$/.test(calculationType)) {
         putNumberOnStack(calculationType, seenOperator);
     }
-    if (calculationType == "dot") {
+    else if (calculationType == "dot") {
         console.log(`Spl op: ${calculationType}`);
     }
-    if ((/([+,\-,*,/]+)$/.test(calculationType))) {
+    else if ((/([+,\-,*,/]+)$/.test(calculationType))) {
         seenOperator = true;
         operatorCount++;
         while (/([+,\-,*,/]+)$/.test(currentDisplay.lastChild.textContent)) {
@@ -43,15 +60,17 @@ function performCalculation (event) {
             operate(firstNum, secondNum, previousOperator, false);
         previousOperator = calculationType;
     }
-    if (calculationType == "equal") {
+    else if (calculationType == "equal") {
         equalPressed();
     }
-    if (calculationType == "clear") {
+    else if (calculationType == "clear") {
         reset();
     }
-    if (calculationType == "backspace") {
+    else if (calculationType == "backspace") {
         console.log(`Spl op: ${calculationType}`);
     }
+    else 
+        console.warn(`FATAL warn "${event}" not recognized number or operator`)
 }
 
 function equalPressed () {
