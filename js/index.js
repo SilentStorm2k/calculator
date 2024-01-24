@@ -40,13 +40,12 @@ function performCalculation (event) {
         }
         showInDisplay(calculationType);
         if (operatorCount > 1)
-            operate(firstNum, secondNum, previousOperator);
+            operate(firstNum, secondNum, previousOperator, false);
         previousOperator = calculationType;
     }
     if (calculationType == "equal") {
-        if (firstNum != undefined)
+        if (firstNum != undefined && secondNum == undefined)
             showInResultDisplay(firstNum);
-        console.log(`Spl op: ${calculationType}`);
     }
     if (calculationType == "clear") {
         reset();
@@ -72,11 +71,10 @@ function showInResultDisplay (value) {
     resultDisplay.appendChild(newValue);
 }
 
-function operate (num1, num2, operator) {
+function operate (num1, num2, operator, isTemp) {
     if (num1 == undefined || num2 == undefined || operator == undefined) {
         return
     }
-    operatorCount--;
     let result;
     switch (operator) {
         case '+':
@@ -94,8 +92,11 @@ function operate (num1, num2, operator) {
         default:
             console.log(`function operate mistake. Nums = ${unm1}, ${num2}, operator: ${operator}`)
     }
-    firstNum = result;
-    secondNum = undefined;
+    if (!isTemp) {
+        firstNum = result;
+        secondNum = undefined;
+        operatorCount--;
+    }
     return result;
 }
 
@@ -116,4 +117,7 @@ function putNumberOnStack (num, useSecond) {
         firstNum = firstNum == undefined ? parseInt(num) : firstNum*10 + parseInt(num); 
     }
     showInDisplay(num);
+    if (operatorCount == 1) {
+        showInResultDisplay(operate(firstNum, secondNum, previousOperator, true));
+    }
 }
