@@ -125,10 +125,10 @@ const divide = (num1, num2) => {
 
 function putNumberOnStack (num, useSecond) {
     if (useSecond) {
-        secondNum = secondNum == undefined ? parseInt(num) : secondNum*10 + parseInt(num);
+        secondNum = secondNum == undefined ? parseInt(num) : num=="00" ? secondNum*100 : secondNum*10 + parseInt(num);
     }
     else {
-        firstNum = firstNum == undefined ? parseInt(num) : firstNum*10 + parseInt(num); 
+        firstNum = firstNum == undefined ? parseInt(num) : num=="00" ? firstNum*100 : firstNum*10 + parseInt(num); 
     }
     console.log(`${firstNum}, ${secondNum}`);
     showInDisplay(num);
