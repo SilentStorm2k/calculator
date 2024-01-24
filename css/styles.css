@@ -9,11 +9,12 @@ body {
     justify-content: center;
     align-items: center;
     background: linear-gradient(to bottom, #FDF0D1, #85586F);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-* {
-    /* border: 1px solid red; */
-}
+/* * {
+    border: 1px solid red;
+} */
 
 .calculator-container {
     width: 30rem;
@@ -77,22 +78,22 @@ body {
 }
 
 .footer {
-    margin-bottom: 0;
+    padding: 0.3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: #FDF0D1;
+    gap: 0.5rem;
 }
 
 .logo {
-    /* flex: 0; */
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background-image: url("../images/github-logo-light.png");
     background-size: cover;
 }
 
 .logo:hover {
-    background-image: url("../images/github-logo-dark.png");
+    transform: scale(1.1) rotate(1deg);
 }
