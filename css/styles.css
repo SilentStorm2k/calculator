@@ -91,13 +91,13 @@ button {
     border-radius: 0.2rem;
 }
 
-.equal {
+#equal {
     width: 9.2rem;
     font-weight: bold;
     background-color: #FDF0D1;
 }
 
-.clear {
+#clear {
     color: orangered;
     font-weight: bold;
     background-color: #FDF0D1;
